@@ -18,7 +18,7 @@ namespace JHModule
             }
         }
 
-        protected virtual private void Awake() {
+        protected virtual void Awake() {
             init();
         }
         /// Initalized singleton
