@@ -181,17 +181,64 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 006cdf3b85f3c9e4bafe13fad8d1b261, type: 3}
+--- !u!1 &337830126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2330692847444267546, guid: 006cdf3b85f3c9e4bafe13fad8d1b261, type: 3}
+  m_PrefabInstance: {fileID: 337830125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &337830127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2330692847444267549, guid: 006cdf3b85f3c9e4bafe13fad8d1b261, type: 3}
   m_PrefabInstance: {fileID: 337830125}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 337830126}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc29374caa0631744850bbfea19d954c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &337830128 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2330692847444267550, guid: 006cdf3b85f3c9e4bafe13fad8d1b261, type: 3}
+  m_PrefabInstance: {fileID: 337830125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &337830129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337830126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a30fe441d821864ebdca6ac1f613b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastType: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  inputMask: 1
+  targetObject: {fileID: 337830128}
+  _direction: {x: 0, y: 0, z: 0}
+  targetCamera: {fileID: 963194227}
+  maxDistance: 100
+  castTime: 0.2
+  RayHitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 337830129}
+        m_TargetAssemblyTypeName: JHModule.Interaction.InteractionRay, Assembly-CSharp
+        m_MethodName: DrawRay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2363229199367403215, guid: ca63df01e9c958546b3e76214f7b0d67, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca63df01e9c958546b3e76214f7b0d67, type: 3}

@@ -5,10 +5,10 @@ namespace JHModule.InputSystem
 {
     using Events;
 
-    [System.Flags, System.Serializable] enum InputMask : int
+    [System.Flags, System.Serializable] public enum InputMask : int
     {
-        Player = 0x00000001,
-        UI = 0x00000002,
+        Player = 0x0001,
+        UI = 0x0002,
 
     }
     [System.Serializable] public class PlayerInput
