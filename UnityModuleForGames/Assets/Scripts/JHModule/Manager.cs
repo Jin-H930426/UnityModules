@@ -19,7 +19,7 @@ namespace JHModule
 
         protected override void Awake() {
             base.Awake();
-
+            
             m_resourcesManager.Awake();
             m_inputManager.Awake();
         }

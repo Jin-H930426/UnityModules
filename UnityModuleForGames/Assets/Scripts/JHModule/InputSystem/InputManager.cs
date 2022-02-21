@@ -5,12 +5,6 @@ namespace JHModule.InputSystem
 {
     using Events;
 
-    [System.Flags, System.Serializable] public enum InputMask : int
-    {
-        Player = 0x0001,
-        UI = 0x0002,
-
-    }
     [System.Serializable] public class PlayerInput
     {
         // state from MouseDown
@@ -111,42 +105,47 @@ namespace JHModule.InputSystem
     [System.Serializable] public class InputManager
     {
         /// position from mouse
-        public static Vector2 MousePosition { get { return Manager.inputManager.playerInput.MousePosition; } }
+        public static Vector2 MousePosition { get { return Manager.inputManager.m_playerInput.MousePosition; } }
         /// ray from targetCamera to mouseScreenPoint
         public static Ray GetMouseRayPoint(Camera targetCamera)
         {
             return targetCamera.ScreenPointToRay(MousePosition);
         }
-        [SerializeField] InputMask inputMask = new InputMask();
+        [SerializeField] InputMask m_inputMask = new InputMask();
         Jin_H_Input input = null;
-        [SerializeField] PlayerInput playerInput = new PlayerInput();
+        [SerializeField] PlayerInput m_playerInput = new PlayerInput();
+        public PlayerInput playerInput {get {return m_playerInput;}}
 
         public void Awake() 
         {
             if(input == null) input = new Jin_H_Input();
-            if((inputMask & InputMask.Player) > 0) playerInput.Awake(input);
+            if((m_inputMask & InputMask.Player) > 0) m_playerInput.Awake(input);
         }
         public void OnEnable() {
-            if((inputMask) != 0) 
+            if((m_inputMask) != 0) 
             {
+                #if UNITY_EDITOR
                 Debug.Log("Enable player input");
+                #endif
                 input?.Enable();
             }
         }
         public void OnDisable() {
-            if(inputMask != 0){
+            if(m_inputMask != 0){
+                #if UNITY_EDITOR
                 Debug.Log("Disable player input");
+                #endif
                 input?.Disable();
             } 
         }
 
         public void Update() {
-            if((inputMask & InputMask.Player) > 0) playerInput.Update();
+            if((m_inputMask & InputMask.Player) > 0) m_playerInput.Update();
         }
 
         public void OnDestroy()
         {
-            if((inputMask & InputMask.Player) > 0) playerInput.OnDestroy(input);
+            if((m_inputMask & InputMask.Player) > 0) m_playerInput.OnDestroy(input);
             input = null;
         }
     }
