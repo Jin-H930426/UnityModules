@@ -19,7 +19,7 @@ namespace JHModule
 
         protected override void Awake() {
             base.Awake();
-
+            
             m_resourcesManager.Awake();
             m_inputManager.Awake();
         }
@@ -52,7 +52,7 @@ namespace JHModule
         #if UNITY_EDITOR
         [Header("-------------Unity Editor-------------"),Space(20)]
         [SerializeField, Range(1, 4)] float runtime_TimeScale = 1;
-        [SerializeField, Range(1, 4)] float ui_TimeScale = 1;
+        [SerializeField, Range(0, 4)] float ui_TimeScale = 1;
         
         private void EditorUpdate() {
             TimeProperty.runtime_TimeScale = runtime_TimeScale;
